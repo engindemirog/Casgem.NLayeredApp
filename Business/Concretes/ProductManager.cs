@@ -31,7 +31,7 @@ namespace Business.Concretes
         public List<Product> GetAll()
         {
             //İş kuralları
-            return _productDal.GetAll();
+            return _productDal.GetList();
         }
 
         public void Update(Product product)
