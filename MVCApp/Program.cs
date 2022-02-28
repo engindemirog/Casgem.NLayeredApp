@@ -10,6 +10,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<IProductService, ProductManager>();
 builder.Services.AddSingleton<IProductDal, EfProductDal>();
 
+builder.Services.AddSingleton<ICategoryService, CategoryManager>();
+builder.Services.AddSingleton<ICategoryDal, EfCategoryDal>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
