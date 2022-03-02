@@ -1,4 +1,5 @@
-﻿using Business.Abstracts;
+﻿using AutoMapper;
+using Business.Abstracts;
 using Business.Dtos;
 using DataAccess.Abstracts;
 using Entities.Concretes;
@@ -11,12 +12,14 @@ using System.Threading.Tasks;
 namespace Business.Concretes
 {
     public class ProductManager : IProductService
-    {
+    { 
         IProductDal _productDal;
+        IMapper _mapper;
 
-        public ProductManager(IProductDal productDal)
+        public ProductManager(IProductDal productDal, IMapper mapper)
         {
             _productDal = productDal;
+            _mapper = mapper;
         }
 
         public void Add(Product product)
@@ -32,7 +35,9 @@ namespace Business.Concretes
         public List<ListProductDto> GetAll()
         {
             //İş kuralları
-            return _productDal.GetList();
+            var result = _productDal.GetAllWithCategory();
+            List<ListProductDto> list = _mapper.Map<List<ListProductDto>>(result);
+            return list;
         }
 
         public void Update(Product product)

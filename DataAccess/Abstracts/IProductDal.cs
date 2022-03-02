@@ -10,6 +10,6 @@ namespace DataAccess.Abstracts
 {
     public interface IProductDal:IEntityRepository<Product>
     {
-
+        List<Product> GetAllWithCategory();
     }
 }

@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{4075C980-DAB9-4CCD-8064-77574C1A37CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{4075C980-DAB9-4CCD-8064-77574C1A37CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{AB3B03B6-4344-4B84-8DF2-2F3F178AD438}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{AB3B03B6-4344-4B84-8DF2-2F3F178AD438}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{04A9D93C-AB11-4AF9-A1DC-F001F60F054E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{04A9D93C-AB11-4AF9-A1DC-F001F60F054E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCApp", "MVCApp\MVCApp.csproj", "{342A3409-1D27-418A-A8B2-C5A330170447}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVCApp", "MVCApp\MVCApp.csproj", "{342A3409-1D27-418A-A8B2-C5A330170447}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{86A2949B-D573-4697-8397-5650D7D587D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{86A2949B-D573-4697-8397-5650D7D587D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{1478BEFD-58A5-4069-A515-9A103D8BDEF1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{86A2949B-D573-4697-8397-5650D7D587D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86A2949B-D573-4697-8397-5650D7D587D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86A2949B-D573-4697-8397-5650D7D587D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1478BEFD-58A5-4069-A515-9A103D8BDEF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1478BEFD-58A5-4069-A515-9A103D8BDEF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1478BEFD-58A5-4069-A515-9A103D8BDEF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1478BEFD-58A5-4069-A515-9A103D8BDEF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
