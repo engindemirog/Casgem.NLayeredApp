@@ -1,4 +1,5 @@
 ﻿using Business.Abstracts;
+using Business.Dtos;
 using DataAccess.Abstracts;
 using Entities.Concretes;
 using System;
@@ -28,7 +29,7 @@ namespace Business.Concretes
             throw new NotImplementedException();
         }
 
-        public List<Product> GetAll()
+        public List<ListProductDto> GetAll()
         {
             //İş kuralları
             return _productDal.GetList();

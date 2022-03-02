@@ -1,13 +1,12 @@
-﻿using Core.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.Concretes
+namespace Business.Dtos
 {
-    public class Product:IEntity
+    public class ListProductDto
     {
         public int ProductId { get; set; }
         public int CategoryId { get; set; }
@@ -15,8 +14,5 @@ namespace Entities.Concretes
         public decimal UnitPrice { get; set; }
         public short UnitsInStock { get; set; }
         public string QuantityPerUnit { get; set; }
-
-        public Category Category { get; set; }
-
     }
 }

@@ -36,5 +36,14 @@ app.Run();
 
 //Yeni proje olu?tur : RentACar
 //Katmanlar? olu?tur
+
 //Brand -->Id,Name
 //Markalar? MVC uygulamas?nda listeleyiniz.
+
+//Color -->Id,Name
+//Renkleri MVC uygulamas?nda listeleyiniz.
+
+//Car -->Id,Name, DailyPrice, Description, BrandId, ColorId
+//Arabalar? MVC uygulamas?nda listeleyiniz.
+
+
