@@ -1,4 +1,5 @@
 ﻿using Business.Dtos;
+using Business.Requests;
 using Entities.Concretes;
 using System;
 using System.Collections.Generic;
@@ -11,8 +12,11 @@ namespace Business.Abstracts
     public interface IProductService
     {
         List<ListProductDto> GetAll();
-        void Add(Product product);
+        void Add(CreateProductRequest createProductRequest);
         void Update(Product product);
         void Delete(Product product);
     }
 }
+
+//Brand,Color,Car
+//Bu üç nesne için response & request desenini uygulayınız.

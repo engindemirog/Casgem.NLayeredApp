@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Business.Abstracts;
 using Business.Dtos;
+using Business.Requests;
 using DataAccess.Abstracts;
 using Entities.Concretes;
 using System;
@@ -22,9 +23,10 @@ namespace Business.Concretes
             _mapper = mapper;
         }
 
-        public void Add(Product product)
+        public void Add(CreateProductRequest createProductRequest)
         {
-            throw new NotImplementedException();
+            Product product = _mapper.Map<Product>(createProductRequest);
+            _productDal.Add(product);
         }
 
         public void Delete(Product product)

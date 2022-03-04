@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Business.Dtos;
+using Business.Requests;
 using Entities.Concretes;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,10 @@ namespace Business.Profiles
         {
             CreateMap<Product, ListProductDto>()
                 .ForMember(p=>p.CategoryName,opt=>opt.MapFrom(p=>p.Category.CategoryName))
+                .ReverseMap();
+
+            CreateMap<Product, CreateProductRequest>()
+                .ForMember(p => p.CategoryId, opt => opt.MapFrom(p => p.Category.CategoryId))
                 .ReverseMap();
         }
     }

@@ -43,7 +43,7 @@ app.Run();
 //Color -->Id,Name
 //Renkleri MVC uygulamas?nda listeleyiniz.
 
-//Car -->Id,Name, DailyPrice, Description, BrandId, ColorId
-//Arabalar? MVC uygulamas?nda listeleyiniz.
+//Car -->Id,Name, DailyPrice, Description, BrandName, ColorName
+//Arabalar? API uygulamas?nda listeleyiniz.
 
 
