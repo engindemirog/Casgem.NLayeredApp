@@ -13,7 +13,7 @@ namespace Business.Abstracts
     {
         List<ListProductDto> GetAll();
         void Add(CreateProductRequest createProductRequest);
-        void Update(Product product);
+        void Update(UpdateProductRequest updateProductRequest);
         void Delete(Product product);
     }
 }

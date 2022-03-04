@@ -42,9 +42,10 @@ namespace Business.Concretes
             return list;
         }
 
-        public void Update(Product product)
+        public void Update(UpdateProductRequest updateProductRequest)
         {
-            throw new NotImplementedException();
+            Product product = _mapper.Map<Product>(updateProductRequest);
+            _productDal.Update(product);
         }
     }
 }

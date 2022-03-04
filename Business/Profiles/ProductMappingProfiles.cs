@@ -21,6 +21,10 @@ namespace Business.Profiles
             CreateMap<Product, CreateProductRequest>()
                 .ForMember(p => p.CategoryId, opt => opt.MapFrom(p => p.Category.CategoryId))
                 .ReverseMap();
+
+            CreateMap<Product, UpdateProductRequest>()
+                .ForMember(p => p.CategoryId, opt => opt.MapFrom(p => p.Category.CategoryId))
+                .ReverseMap();
         }
     }
 }

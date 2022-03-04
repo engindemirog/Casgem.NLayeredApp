@@ -28,5 +28,11 @@ namespace WebAPI.Controllers
         {
             _productService.Add(createProductRequest);
         }
+
+        [HttpPost("update")]
+        public void Update(UpdateProductRequest updateProductRequest)
+        {
+            _productService.Update(updateProductRequest);
+        }
     }
 }
