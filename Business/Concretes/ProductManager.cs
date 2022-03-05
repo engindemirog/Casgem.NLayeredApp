@@ -2,8 +2,10 @@
 using Business.Abstracts;
 using Business.Dtos;
 using Business.Requests;
+using Business.ValidationRules.FluentValidation;
 using DataAccess.Abstracts;
 using Entities.Concretes;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +27,15 @@ namespace Business.Concretes
 
         public void Add(CreateProductRequest createProductRequest)
         {
+            CreateProductRequestValidator validator = new CreateProductRequestValidator();
+            var result = validator.Validate(createProductRequest);
+
+            if (!result.IsValid)
+            {
+                throw new ValidationException(result.Errors);
+            }
+
+
             Product product = _mapper.Map<Product>(createProductRequest);
             _productDal.Add(product);
         }
@@ -49,3 +60,5 @@ namespace Business.Concretes
         }
     }
 }
+
+//
