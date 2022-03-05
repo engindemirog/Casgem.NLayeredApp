@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Business.Abstracts;
+using Business.BusinessRules;
 using Business.Dtos;
 using Business.Requests;
 using Business.ValidationRules.FluentValidation;
@@ -19,17 +20,20 @@ namespace Business.Concretes
     { 
         IProductDal _productDal;
         IMapper _mapper;
+        ProductBusinessRules _productBusinessRules;
 
-        public ProductManager(IProductDal productDal, IMapper mapper)
+        public ProductManager(IProductDal productDal, IMapper mapper, ProductBusinessRules productBusinessRules)
         {
             _productDal = productDal;
             _mapper = mapper;
+            _productBusinessRules = productBusinessRules;
         }
 
         public void Add(CreateProductRequest createProductRequest)
         {
             ValidationTool.Validate(new CreateProductRequestValidator(), createProductRequest);
 
+            _productBusinessRules.CheckIfProductNameExists(createProductRequest.ProductName);
 
             Product product = _mapper.Map<Product>(createProductRequest);
             _productDal.Add(product);
@@ -56,4 +60,10 @@ namespace Business.Concretes
     }
 }
 
-//
+//CarMaintenances entitisi oluşturunuz.
+//Id,Description, SendDate, ReturnDate,Car
+//Insert yaparken ReturnDate null gönderilir
+//ReturnDate sadece update işleminde dönebilir
+//CRUD
+//GetByCarId
+//Bir araba bakımdayken bakıma gönderilemez

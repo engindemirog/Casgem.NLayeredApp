@@ -1,4 +1,5 @@
 ﻿using Business.Abstracts;
+using Business.BusinessRules;
 using Business.Concretes;
 using DataAccess.Abstracts;
 using DataAccess.Concretes.EntityFramework;
@@ -23,6 +24,7 @@ namespace Business
 
             services.AddSingleton<IProductService, ProductManager>();
             services.AddSingleton<IProductDal, EfProductDal>();
+            services.AddSingleton<ProductBusinessRules>();
             return services;
         }
     }
