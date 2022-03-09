@@ -34,12 +34,35 @@ namespace Core.CrossCuttingConcerns.Exceptions
         {
             context.Response.ContentType = "application/json";
 
-            if (exception.GetType() == typeof(ValidationException))
-            {
-                return CreateValidationException(context, exception);
-            }
+            if (exception.GetType() == typeof(ValidationException)) return CreateValidationException(context, exception);
+            if (exception.GetType() == typeof(BusinessException)) return CreateBusinessException(context, exception);
+            return CreateInternalException(context, exception);
+        }
 
-            return context.Response.WriteAsync(new ProblemDetails { }.ToString());
+        private Task CreateInternalException(HttpContext context, Exception exception)
+        {
+            context.Response.StatusCode = Convert.ToInt32(HttpStatusCode.BadRequest);
+            return context.Response.WriteAsync(new ProblemDetails
+            {
+                Status = StatusCodes.Status400BadRequest,
+                Type = "https://casgem.com/internal",
+                Title = "Internal Exception",
+                Detail = "Bilinmeyen bir hata oluştu",
+                Instance = ""
+            }.ToString());
+        }
+
+        private Task CreateBusinessException(HttpContext context, Exception exception)
+        {
+            context.Response.StatusCode = Convert.ToInt32(HttpStatusCode.BadRequest);
+            return context.Response.WriteAsync(new BusinessProblemDetails
+            {
+                Status = StatusCodes.Status400BadRequest,
+                Type = "https://casgem.com/business",
+                Title = "Business Exception",
+                Detail = exception.Message,
+                Instance = ""
+            }.ToString());
         }
 
         private Task CreateValidationException(HttpContext context, Exception exception)
