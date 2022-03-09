@@ -1,6 +1,7 @@
 using Business;
 using Business.Abstracts;
 using Business.Concretes;
+using Core.CrossCuttingConcerns.Exceptions;
 using DataAccess.Abstracts;
 using DataAccess.Concretes.EntityFramework;
 using System.Reflection;
@@ -23,6 +24,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.ConfigureCustomExceptipnMiddleware();
 
 app.UseAuthorization();
 

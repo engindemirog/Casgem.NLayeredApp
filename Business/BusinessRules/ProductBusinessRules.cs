@@ -1,4 +1,5 @@
-﻿using DataAccess.Abstracts;
+﻿using Core.CrossCuttingConcerns.Exceptions;
+using DataAccess.Abstracts;
 using Entities.Concretes;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace Business.BusinessRules
 
             if (productToCheck != null)
             {
-                throw new Exception("Bu isimde daha önce ürün eklenmiştir");
+                throw new BusinessException("Bu isimde daha önce ürün eklenmiştir");
             }
         }
     }
