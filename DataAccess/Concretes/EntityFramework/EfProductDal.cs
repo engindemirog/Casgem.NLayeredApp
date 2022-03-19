@@ -20,5 +20,13 @@ namespace DataAccess.Concretes.EntityFramework
                 return context.Products.Include(p=>p.Category).ToList();
             }
         }
+
+        public Product GetProductWithCategoryById(int id)
+        {
+            using (NorthwindContext context = new NorthwindContext())
+            {
+                return context.Products.Include(p => p.Category).SingleOrDefault(p=>p.ProductId==id);
+            }
+        }
     }
 }

@@ -24,6 +24,10 @@ namespace Business
 
             services.AddSingleton<IProductService, ProductManager>();
             services.AddSingleton<IProductDal, EfProductDal>();
+
+            services.AddSingleton<ICategoryService, CategoryManager>();
+            services.AddSingleton<ICategoryDal, EfCategoryDal>();
+
             services.AddSingleton<ProductBusinessRules>();
             return services;
         }

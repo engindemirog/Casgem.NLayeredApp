@@ -18,6 +18,10 @@ namespace Business.Profiles
                 .ForMember(p=>p.CategoryName,opt=>opt.MapFrom(p=>p.Category.CategoryName))
                 .ReverseMap();
 
+            CreateMap<Product, GetProductDto>()
+               .ForMember(p => p.CategoryName, opt => opt.MapFrom(p => p.Category.CategoryName))
+               .ReverseMap();
+
             CreateMap<Product, CreateProductRequest>()
                 .ForMember(p => p.CategoryId, opt => opt.MapFrom(p => p.Category.CategoryId))
                 .ReverseMap();

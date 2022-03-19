@@ -52,6 +52,13 @@ namespace Business.Concretes
             return list;
         }
 
+        public GetProductDto GetById(int id)
+        {
+            var result = _productDal.GetProductWithCategoryById(id);
+            GetProductDto response = _mapper.Map<GetProductDto>(result);
+            return response;
+        }
+
         public void Update(UpdateProductRequest updateProductRequest)
         {
             Product product = _mapper.Map<Product>(updateProductRequest);

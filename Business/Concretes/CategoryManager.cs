@@ -1,4 +1,6 @@
-﻿using Business.Abstracts;
+﻿using AutoMapper;
+using Business.Abstracts;
+using Business.Dtos;
 using DataAccess.Abstracts;
 using Entities.Concretes;
 using System;
@@ -12,10 +14,12 @@ namespace Business.Concretes
     public class CategoryManager : ICategoryService
     {
         ICategoryDal _categoryDal;
+        IMapper _mapper;
 
-        public CategoryManager(ICategoryDal categoryDal)
+        public CategoryManager(ICategoryDal categoryDal, IMapper mapper)
         {
             _categoryDal = categoryDal;
+            _mapper = mapper;
         }
 
         public void Add(Category category)
@@ -28,9 +32,11 @@ namespace Business.Concretes
             throw new NotImplementedException();
         }
 
-        public List<Category> GetAll()
+        public List<ListCategoryDto> GetAll()
         {
-            return _categoryDal.GetList();
+            var result = _categoryDal.GetList();
+            List<ListCategoryDto> list = _mapper.Map<List<ListCategoryDto>>(result);
+            return list;
         }
 
         public void Update(Category category)

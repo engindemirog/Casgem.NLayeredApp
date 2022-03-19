@@ -12,6 +12,7 @@ namespace Business.Abstracts
     public interface IProductService
     {
         List<ListProductDto> GetAll();
+        GetProductDto GetById(int id);
         void Add(CreateProductRequest createProductRequest);
         void Update(UpdateProductRequest updateProductRequest);
         void Delete(Product product);
