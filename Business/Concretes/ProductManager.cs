@@ -52,6 +52,13 @@ namespace Business.Concretes
             return list;
         }
 
+        public List<ListProductDto> GetAllByCategory(int categoryId)
+        {
+            var result = _productDal.GetAllWithCategoryByCategoryId(categoryId);
+            List<ListProductDto> list = _mapper.Map<List<ListProductDto>>(result);
+            return list;
+        }
+
         public GetProductDto GetById(int id)
         {
             var result = _productDal.GetProductWithCategoryById(id);
@@ -66,11 +73,3 @@ namespace Business.Concretes
         }
     }
 }
-
-//CarMaintenances entitisi oluşturunuz.
-//Id,Description, SendDate, ReturnDate,Car
-//Insert yaparken ReturnDate null gönderilir
-//ReturnDate sadece update işleminde dönebilir
-//CRUD
-//GetByCarId
-//Bir araba bakımdayken bakıma gönderilemez

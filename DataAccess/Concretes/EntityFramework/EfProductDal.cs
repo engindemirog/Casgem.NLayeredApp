@@ -21,6 +21,14 @@ namespace DataAccess.Concretes.EntityFramework
             }
         }
 
+        public List<Product> GetAllWithCategoryByCategoryId(int categoryId)
+        {
+            using (NorthwindContext context = new NorthwindContext())
+            {
+                return context.Products.Include(p => p.Category).Where(p=>p.Category.CategoryId==categoryId).ToList();
+            }
+        }
+
         public Product GetProductWithCategoryById(int id)
         {
             using (NorthwindContext context = new NorthwindContext())

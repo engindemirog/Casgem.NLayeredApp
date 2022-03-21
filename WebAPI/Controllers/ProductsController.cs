@@ -20,8 +20,15 @@ namespace WebAPI.Controllers
         [HttpGet("getall")]
         public List<ListProductDto> GetAll()
         {
-            Thread.Sleep(3000);
+            Thread.Sleep(1000);
             return _productService.GetAll();
+        }
+
+        [HttpGet("getallbycategory/{id}")]
+        public List<ListProductDto> GetAllByCategory([FromRoute]  int id)
+        {
+            Thread.Sleep(1000);
+            return _productService.GetAllByCategory(id);
         }
 
         [HttpGet("getbyid/{id}")]

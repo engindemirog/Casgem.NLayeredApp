@@ -12,5 +12,6 @@ namespace DataAccess.Abstracts
     {
         List<Product> GetAllWithCategory();
         Product GetProductWithCategoryById(int id);
+        List<Product> GetAllWithCategoryByCategoryId(int categoryId);
     }
 }
