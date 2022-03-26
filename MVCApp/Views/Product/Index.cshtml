@@ -22,7 +22,7 @@
                 @Html.DisplayNameFor(model => model.ProductId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CategoryId)
+                @Html.DisplayNameFor(model => model.Category.CategoryId)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ProductName)
@@ -46,7 +46,7 @@
                 @Html.DisplayFor(modelItem => item.ProductId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CategoryId)
+                @Html.DisplayFor(modelItem => item.Category.CategoryId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ProductName)

@@ -1,6 +1,7 @@
 ﻿using Business.Abstracts;
 using Business.BusinessRules;
 using Business.Concretes;
+using Core.CrossCuttingConcerns.Security.Jwt;
 using DataAccess.Abstracts;
 using DataAccess.Concretes.EntityFramework;
 using FluentValidation;
@@ -29,6 +30,13 @@ namespace Business
             services.AddSingleton<ICategoryDal, EfCategoryDal>();
 
             services.AddSingleton<ProductBusinessRules>();
+
+            services.AddSingleton<IAuthService, AuthManager>();
+
+            services.AddSingleton<IUserService, UserManager>();
+            services.AddSingleton<IUserDal, EfUserDal>();
+
+            services.AddSingleton<ITokenHelper, JwtHelper>();
             return services;
         }
     }
