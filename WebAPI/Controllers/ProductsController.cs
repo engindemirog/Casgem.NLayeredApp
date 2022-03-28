@@ -1,6 +1,7 @@
 ﻿using Business.Abstracts;
 using Business.Dtos;
 using Business.Requests;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,6 +19,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getall")]
+        [Authorize]
         public List<ListProductDto> GetAll()
         {
             Thread.Sleep(1000);
