@@ -19,10 +19,10 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getall")]
-        [Authorize]
+        //[Authorize]
         public List<ListProductDto> GetAll()
         {
-            Thread.Sleep(1000);
+            
             return _productService.GetAll();
         }
 

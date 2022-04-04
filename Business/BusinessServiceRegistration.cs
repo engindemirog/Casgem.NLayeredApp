@@ -23,20 +23,7 @@ namespace Business
 
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
-            services.AddSingleton<IProductService, ProductManager>();
-            services.AddSingleton<IProductDal, EfProductDal>();
-
-            services.AddSingleton<ICategoryService, CategoryManager>();
-            services.AddSingleton<ICategoryDal, EfCategoryDal>();
-
-            services.AddSingleton<ProductBusinessRules>();
-
-            services.AddSingleton<IAuthService, AuthManager>();
-
-            services.AddSingleton<IUserService, UserManager>();
-            services.AddSingleton<IUserDal, EfUserDal>();
-
-            services.AddSingleton<ITokenHelper, JwtHelper>();
+            
             return services;
         }
     }
