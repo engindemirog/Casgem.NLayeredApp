@@ -50,5 +50,11 @@ namespace WebAPI.Controllers
         {
             _productService.Update(updateProductRequest);
         }
+
+        [HttpGet("transactiontest")]
+        public void TestTransactional()
+        {
+            _productService.TransactionalOperationTest();
+        }
     }
 }

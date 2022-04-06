@@ -17,6 +17,7 @@ namespace Business.Abstracts
         void Update(UpdateProductRequest updateProductRequest);
         void Delete(Product product);
         List<ListProductDto> GetAllByCategory(int categoryId);
+        void TransactionalOperationTest();
     }
 }
 

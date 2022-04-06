@@ -11,6 +11,7 @@ using Core.Aspects.Autofac.Logging;
 using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
+using Core.CrossCuttingConcerns.Performance;
 using Core.Utilities.Validation;
 using DataAccess.Abstracts;
 using Entities.Concretes;
@@ -23,6 +24,7 @@ using System.Threading.Tasks;
 
 namespace Business.Concretes
 {
+    [PerformanceAspect(4)]
     public class ProductManager : IProductService
     { 
         IProductDal _productDal;
@@ -37,7 +39,7 @@ namespace Business.Concretes
         }
 
         [ValidationAspect(typeof(CreateProductRequestValidator))]
-        [TransactionScopeAspect()]
+        
         public void Add(CreateProductRequest createProductRequest)
         {
             _productBusinessRules.CheckIfProductNameExists(createProductRequest.ProductName);
@@ -51,7 +53,7 @@ namespace Business.Concretes
             throw new NotImplementedException();
         }
 
-        [CacheAspect(Priority = 2)]
+        //[CacheAspect(Priority = 2)]
         //[SecuredOperation("product.read,admin,editor", Priority = 1)]
         //[Operation2("product.getAll")]
        
@@ -78,6 +80,15 @@ namespace Business.Concretes
             var result = _productDal.GetProductWithCategoryById(id);
             GetProductDto response = _mapper.Map<GetProductDto>(result);
             return response;
+        }
+
+        [TransactionScopeAspect()]
+        public void TransactionalOperationTest()
+        {
+            Update(new UpdateProductRequest 
+            { CategoryId=1, ProductId=1, ProductName ="Test PN2", QuantityPerUnit="Test", UnitPrice=150, UnitsInStock=10});
+            Add(new CreateProductRequest 
+            { CategoryId = 100, ProductName = "A", UnitsInStock = 100, QuantityPerUnit = "Test", UnitPrice = 10 });
         }
 
         public void Update(UpdateProductRequest updateProductRequest)
